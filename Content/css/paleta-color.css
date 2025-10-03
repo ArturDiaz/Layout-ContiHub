@@ -1,0 +1,164 @@
+:root{
+	--c-blanco: #fff;
+	--c-blanco-transparent: #ffffff2f;
+	--c-blanco-transparent-10: #ffffff46;
+	--c-blanco-transparent-20: #ffffff60;
+	--c-blanco-transparent-30: #ffffff7c;
+	--c-blanco-transparent-40: #ffffff8b;
+	--c-blanco-transparent-50: #ffffff9e;
+	--c-blanco-transparent-60: #ffffffb0;
+	--c-blanco-transparent-70: #ffffffc6;
+	--c-blanco-transparent-80: #ffffffd5;
+	--c-blanco-transparent-90: #ffffffe5;
+	
+
+	--c-scale-10: #f3f5fa;
+	--c-scale-20: #e9ecf6;
+	--c-scale-30: #d7daee;
+	--c-scale-40: #bec3e3;
+	--c-scale-50: #a3a6d6;
+	--c-scale-60: #8d8cc8;
+	--c-scale-70: #7a73b8;
+	--c-scale-80: #6a63a1;
+	--c-scale-90: #565182;
+	--c-scale-100: #484669;
+	--c-scale-200: #2b293d;
+
+	--c-scale-transparent: #2b293d52;
+	--c-scale-0-trans: #2b293d14;
+	--c-transparent-10: #2b293d0e;
+	--c-transparent-20: #2b293d1f;
+	--c-transparent-30: #2b293d37;
+	--c-transparent-40: #2b293d51;
+	--c-transparent-50: #2b293d6d;
+	--c-transparent-60: #2b293d8e;
+
+	--c-primary-10: #d6f1ff;
+	--c-primary-20: #b5e9ff;
+	--c-primary-30: #83ddff;
+	--c-primary-40: #48c8ff;
+	--c-primary-50: #1ea9ff;
+	--c-primary-60: #068bff;
+
+	--c-primary: #3312c4;
+	--c-primary-hover: #19095f;
+
+	--c-secondary-10: #edfdfe;
+	--c-secondary-20: #d1fafc;
+	--c-secondary-30: #a8f1f9;
+	--c-secondary-40: #6de6f3;
+	--c-secondary-50: #0e90ac;
+	--c-secondary: #1fcee5;
+	--c-secondary-hover: #0eb3cc;
+
+	--c-action-10: #fff0f8;
+	--c-action-20: #ffe3f9;
+	--c-action-30: #ffc6f3;
+	--c-action-40: #ff98f8;
+	--c-action: #fd009e;
+	--c-action-hover: #ff27c0;
+
+	--c-yellow-00: #fffde9;
+	--c-yellow-10: #fffac5;
+	--c-yellow-20: #fff685;
+	--c-yellow-30: #ffeb46;
+	--c-yellow-40: #ffdc18;
+	--c-yellow: #ffbc00;
+	--c-yellow-hover: #d79e00;
+	--c-yellow-hover-10: #946c00;
+
+	--c-orange-10: #fef7ee;
+	--c-orange-20: #fcedd8;
+	--c-orange-30: #f9d7af;
+	--c-orange-40: #f4ba7d;
+	--c-orange: #ed8937;
+	--c-orange-hover: #ea7625;
+
+	--c-red-10: #ffe0e0;
+	--c-red-20: #ffc6c6;
+	--c-red-30: #ff9f9f;
+	--c-red-40: #ff6767;
+	--c-red: #fc4646;
+	--c-red-hover: #ea1818;
+
+	--c-violet-10: #fce3ff;
+	--c-violet-20: #fac6ff;
+	--c-violet-30: #fa9aff;
+	--c-violet-40: #ee22ff;
+	--c-violet-50: #d701f8;
+	--c-violet: #b700ce;
+	--c-violet-hover: #9200a2;
+
+	--c-green-10: #d3f8e4;
+	--c-green-20: #abefce;
+	--c-green-30: #75e0b3;
+	--c-green-40: #3dca93;
+	--c-green: #1bbc82;
+	--c-green-hover: #0d8e62;
+
+	--c-lemon-10: #f7ffe6;
+	--c-lemon-20: #ecfec9;
+	--c-lemon-30: #d9fe98;
+	--c-lemon-40: #bef95d;
+	--c-lemon-50: #a2ef2c;
+	--c-lemon: #8de50e;
+	--c-lemon-hover: #4c810a;
+
+	--c-black-00:#e4e4e4;
+	--c-black-10: #dbdbdb;
+	--c-black-20: #b6b6b6;
+	--c-black-30: #989898;
+	--c-black-40: #7b7b7b;
+	--c-black-50: #646464;
+	--c-black: #2d2d2d;
+	--c-black-hover: #1c1c1c;
+
+	/* --font-gotham: 'Gotham Rounded';
+	--font-exo: "Exo 2", sans-serif; */
+
+	--bg-lineal-primary: linear-gradient(0deg,  var(--c-primary), var(--c-primary-hover));
+
+	--box-sh: 0px 4px 10px #2b293d17;
+	--box-sh-20: 0px 4px 10px #2b293d47;
+	--box-sh-primary: -3px -3px 10px var(--c-secondary-30), 3px 3px 10px var(--c-primary-20);
+	--box-sh-home: 10px 5px 36px -8px var(--c-primary-30), -10px 4px 36px -10px var(--c-action-30);
+	--box-sh-item: 14px 12px 26px -14px var(--c-primary-20), -10px 4px 36px -10px var(--c-action-30), 21px -5px 33px -27px var(--c-yellow-20);
+
+	--linear-gradient: linear-gradient(45deg, var(--c-primary), var(--c-secondary));
+
+	/* Tamaño texto */
+	--font-sz-title-card: clamp(2.2rem, 2.5vw, 2.7rem);
+	--font-sz-title: clamp(2.5rem, 3.5vw, 3.7rem);
+	--font-sz-subtitle: clamp(1.8rem, 2vw, 2.2rem);
+	--font-sz-parrafo: clamp(1.5rem, 2vw, 2rem);
+	--font-sz-title-slider: clamp(2.5rem, 4.5vw, 5rem);
+	--font-11: 11px;
+	--font-12: 12px;
+	--font-13: 13px;
+	--font-14: 14px;
+	--font-15: 15px;
+	--font-16: 16px;
+	--font-18: 18px;
+}
+/* 
+@font-face {
+    font-family: 'Gotham Rounded';
+    src: url('../fonts/GOTHAMROUNDEDBOLD.TTF') format('truetype');
+	font-weight: bold;
+}
+@font-face {
+    font-family: 'Gotham Rounded';
+    src: url('../fonts/GOTHAMROUNDEDLIGHT.TTF') format('truetype');
+    font-weight: 300;
+}
+@font-face {
+    font-family: 'Gotham Rounded';
+    src: url('../fonts/GOTHAMROUNDEDBOOK.TTF') format('truetype');
+    font-weight: normal;
+}
+@font-face {
+    font-family: 'Gotham Rounded';
+    src: url('../fonts/GOTHAMROUNDEDMEDIUM.TTF') format('truetype');
+    font-weight: 500;
+} */
+
