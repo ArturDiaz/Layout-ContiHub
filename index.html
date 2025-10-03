@@ -116,17 +116,17 @@
                         <div class="flex-_c-r gap-20-30">
                             <div class="list-contact flex-c-r gap-10 ai-c">
                                 <div class="dropdown">
-                                    <button type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" class="ct-btn ct-btn-white flex-r ai-c gap-5 hide-mobile" aria-expanded="false">
+                                    <button type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" class="ct-btn-rect ct-btn-white flex-r ai-c gap-5 hide-mobile" aria-expanded="false">
                                         <svg class="bs-icon"><use xlink:href="#i-message"></use></svg>
                                         <span>Soporte</span>
                                         <svg class="bs-icon"><use xlink:href="#i-arrow-down-sm"></use></svg>
                                     </button>
                                     <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                                         <div class="flex-c gap-10">
-                                            <li><a class="dropdown-item flex-r gap-5" href="mailto:cobranzasconsolidador@continentaltravel.com.pe"><svg class="bs-icon"><use xlink:href="#i-msg"></use></svg><div class="flex-c"><b>Cobranzas</b><span class="font-sz-12">cobranzasconsolidador@continentaltravel.com.pe</span></div></a></li>
-                                            <li><a class="dropdown-item flex-r gap-5" href="mailto:comisionesconsolidador@continentaltravel.com.pe"><svg class="bs-icon"><use xlink:href="#i-msg"></use></svg><div class="flex-c"><b>Comisiones</b><span class="font-sz-12">comisionesconsolidador@continentaltravel.com.pe</span></div></a></li>
-                                            <li><a class="dropdown-item flex-r gap-5" href="mailto:facturacionconsolidador@continentaltravel.com.pe"><svg class="bs-icon"><use xlink:href="#i-msg"></use></svg><div class="flex-c"><b>Facturación</b><span class="font-sz-12">facturacionconsolidador@continentaltravel.com.pe</span></div></a></li>
-                                            <li><a class="dropdown-item flex-r gap-5" href="mailto:contado@continentaltravel.com.pe"><svg class="bs-icon"><use xlink:href="#i-msg"></use></svg><div class="flex-c"><b>Wallet</b><span class="font-sz-12">contado@continentaltravel.com.pe</span></div></a></li>
+                                            <li><a class="dropdown-item flex-r gap-5 max-230" href="mailto:cobranzasconsolidador@continentaltravel.com.pe"><svg class="bs-icon"><use xlink:href="#i-msg"></use></svg><div class="flex-c text-continue"><b>Cobranzas</b><span class="font-sz-10-12">cobranzasconsolidador@continentaltravel.com.pe</span></div></a></li>
+                                            <li><a class="dropdown-item flex-r gap-5 max-230" href="mailto:comisionesconsolidador@continentaltravel.com.pe"><svg class="bs-icon"><use xlink:href="#i-msg"></use></svg><div class="flex-c text-continue"><b>Comisiones</b><span class="font-sz-10-12">comisionesconsolidador@continentaltravel.com.pe</span></div></a></li>
+                                            <li><a class="dropdown-item flex-r gap-5 max-230" href="mailto:facturacionconsolidador@continentaltravel.com.pe"><svg class="bs-icon"><use xlink:href="#i-msg"></use></svg><div class="flex-c text-continue"><b>Facturación</b><span class="font-sz-10-12">facturacionconsolidador@continentaltravel.com.pe</span></div></a></li>
+                                            <li><a class="dropdown-item flex-r gap-5 max-230" href="mailto:contado@continentaltravel.com.pe"><svg class="bs-icon"><use xlink:href="#i-msg"></use></svg><div class="flex-c text-continue"><b>Wallet</b><span class="font-sz-10-12">contado@continentaltravel.com.pe</span></div></a></li>
                                         </div>
                                     </ul>
                                 </div>
@@ -176,8 +176,59 @@
         </section>
     </header>
     <main>
-        <section class="content-main width-responsive">
-            Aqui el contenido
+        <section class="content-main width-responsive flex-c gap-20">
+            <article class="main-header">
+                <a href=""><span>Inicio</span></a>
+            </article>
+            <article class="flex-c gap-20">
+                <card class="flex-_c-r jc-b gap-10">
+                    <div class="item-card flex-c gap-10">
+                        <div class="flex-c">
+                            <span class="font-sz-12">Vendedor(a)</span>
+                            <b>Nombre del Vendedor</b>
+                        </div>
+                        <div class="flex-c">
+                            <span class="font-sz-12">Cobrador(a)</span>
+                            <b>Nombre del Cobrador</b>
+                        </div>
+                    </div>
+                    <div class="item-card badge-money flex-r ai-c gap-5 ct-badge badge-yellow">
+                        <svg class="bs-icon"><use xlink:href="#i-dolar"></use></svg>
+                        <div class="flex-c">
+                            <span>Tipo de cambio</span>
+                            <b>0.00</b>
+                        </div>
+                    </div>
+                </card>
+                <card class="card-search flex-c gap-10">
+                    <div class="item-card flex-c__grid cl-6 gap-10 ai-c">
+                        <h6 class="text-l-r as-l">Buscar Cliente</h6>
+                        <input type="text" placeholder="DK">
+                        <input type="text" placeholder="Ruc">
+                        <input type="text" placeholder="Razon Social">
+                        <input type="text" placeholder="Nombre corto">
+                        <button class="ct-btn ct-btn-primary flex-r ai-c gap-5 as-r-l">
+                            <svg class="bs-icon"><use xlink:href="#i-search"></use></svg>
+                            <span>Buscar</span>    
+                        </button>
+                    </div>
+                    <div class="item-card flex-c__grid cl-6 gap-10 ai-c">
+                        <h6 class="text-l-r as-l">Elegir Fecha</h6>
+                        <input type="date">
+                        <input type="date">
+                        <select name="" id="" class="span-2">
+                            <option value="">Seleccione</option>
+                            <option value="">opcion 1</option>
+                            <option value="">opcion 2</option>
+                            <option value="">opcion 3</option>
+                        </select>
+                        <button class="ct-btn ct-btn-secondary flex-r ai-c gap-5 as-r-l">
+                            <svg class="bs-icon"><use xlink:href="#i-search"></use></svg>
+                            <span>Buscar</span>    
+                        </button>
+                    </div>
+                </card>
+            </article>
         </section>  
     </main>
     <footer>
