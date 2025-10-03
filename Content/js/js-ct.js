@@ -1,6 +1,6 @@
 $(document).ready(function(){
     /* cargando paginas */
-    $("#libreria-icons-svg").load("/Views/Topic/libreria-icons.html").hide();
+    $("#libreria-icons-svg").load("Views/Topic/libreria-icons.html").hide();
 
     /* SideBar */
     $("#expanded-sidebar").on('change', function(){
