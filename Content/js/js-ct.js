@@ -65,20 +65,36 @@ function getHomePath() {
         // Extraer el nombre del repositorio
         const pathParts = pathname.split('/').filter(part => part);
         if (pathParts.length > 0) {
-            return `/${pathParts[0]}/`;
+            const repoName = pathParts[0];
+            return `/${repoName}/`;
         }
     }
     
-    // Para localhost
-    return '/';
+    // Para localhost o dominio personalizado
+    const basePath = getBasePath();
+    if (basePath === '') {
+        return '/';
+    }
+    return `${basePath}index.html`;
 }
 
 function setupHomeLinks() {
     const homePath = getHomePath();
     
-    // Actualizar todos los enlaces que apuntan al home
-    $('.dynamic-link-home').attr('href', homePath);
-    $('a[href="/"]').not('.dynamic-link-home').attr('href', homePath);
+    // Usar un timeout muy corto para asegurar que el DOM esté listo
+    setTimeout(function() {
+        // Actualizar todos los enlaces que apuntan al home
+        $('.dynamic-link-home').each(function() {
+            $(this).attr('href', homePath);
+        });
+        
+        // También actualizar cualquier enlace con href="/"
+        $('a[href="/"], a[href="index.html"]').not('.dynamic-link').each(function() {
+            $(this).attr('href', homePath);
+        });
+        
+        console.log('Home links configurados a:', homePath);
+    }, 50);
 }
 
 function setupDynamicLinks() {
@@ -89,9 +105,14 @@ function setupDynamicLinks() {
         const originalHref = $(this).attr('href');
         let newHref = originalHref;
         
-        // Si es index.html, va a la raíz
-        if (originalHref === 'index.html') {
-            newHref = `${basePath}index.html`;
+        // Si es vacío o "#", ignorar
+        if (!originalHref || originalHref === '#' || originalHref === '') {
+            return;
+        }
+        
+        // Si es index.html, va al home
+        if (originalHref === 'index.html' || originalHref === '/') {
+            newHref = getHomePath();
         } 
         // Si es cualquier otra página, va a Views/Pages/
         else if (originalHref.endsWith('.html')) {
@@ -101,4 +122,6 @@ function setupDynamicLinks() {
         // Actualizar el href
         $(this).attr('href', newHref);
     });
+    
+    console.log('Dynamic links configurados con basePath:', basePath);
 }
