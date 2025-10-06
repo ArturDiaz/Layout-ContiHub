@@ -139,6 +139,8 @@
 	--font-15: 15px;
 	--font-16: 16px;
 	--font-18: 18px;
+	--font-p: .75em;
+	--font-b: .9em;
 }
 /* 
 @font-face {

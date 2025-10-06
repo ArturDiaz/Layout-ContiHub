@@ -1,0 +1,64 @@
+
+    <input id="expanded-sidebar" type="checkbox" class="hide">
+    <label for="expanded-sidebar" class="label-check flex-c ai-c">
+        <svg class="bs-icon"><use xlink:href="#i-arrow-left-sm"></use></svg>
+    </label>
+    <div id="accordionSidebar" class="menu-sidebar flex-c gap-20">
+        <div class="content-logo">
+            <div class="logo-ct"></div>
+        </div>
+        <ul class="flex-c gap-10 btns-white btn-collapse-js">
+            <li>
+                <a href="Reservas.html" class="dynamic-link flex-r ai-c gap-5">
+                    <svg class="bs-icon"><use xlink:href="#i-vuelos"></use></svg>
+                    <span>Reservar</span>
+                </a>
+            </li>
+            <li>
+                <a href="Tablas.html" class="dynamic-link flex-r ai-c gap-5">
+                    <svg class="bs-icon"><use xlink:href="#i-table"></use></svg>
+                    <span>Tablas</span>
+                </a>
+            </li>
+            <li>
+                <a href="" class="dynamic-link flex-r ai-c gap-5">
+                    <svg class="bs-icon"><use xlink:href="#i-seguridad"></use></svg>
+                    <span>Seguridad</span>
+                </a>
+            </li>
+            <li class="flex-c gap-10-5 accordion-item">
+                <button id="headingOne-1" class="flex-r ai-c jc-b gap-5 collapsed" data-toggle="collapse" data-target="#orders-collapse" aria-expanded="false">
+                    <div class="flex-r ai-c gap-5">
+                        <svg class="bs-icon"><use xlink:href="#i-analysis"></use></svg>
+                        <span>Orders</span>
+                    </div>
+                    <svg class="bs-icon icon-rotate"><use xlink:href="#i-arrow-down-sm"></use></svg>
+                </button>
+                <div class="collapse" id="orders-collapse" aria-labelledby="headingOne-1" data-parent="#accordionSidebar">
+                    <ul class="btn-toggle-nav flex-c gap-10-5">
+                        <li><a href="#" class="dynamic-link flex-r gap-5 ai-c"><svg class="bs-icon"><use xlink:href="#i-arrow-right-sm"></use></svg><span>New</span></a></li>
+                        <li><a href="#" class="dynamic-link flex-r gap-5 ai-c"><svg class="bs-icon"><use xlink:href="#i-arrow-right-sm"></use></svg><span>Processed</span></a></li>
+                        <li><a href="#" class="dynamic-link flex-r gap-5 ai-c"><svg class="bs-icon"><use xlink:href="#i-arrow-right-sm"></use></svg><span>Shipped</span></a></li>
+                        <li><a href="#" class="dynamic-link flex-r gap-5 ai-c"><svg class="bs-icon"><use xlink:href="#i-arrow-right-sm"></use></svg><span>Returned</span></a></li>
+                    </ul>
+                </div>
+            </li>
+            <li class="flex-c gap-10-5 accordion-item">
+                <button id="headingOne-2" class="flex-r ai-c jc-b gap-5 collapsed" data-toggle="collapse" data-target="#orders-collapse-2" aria-expanded="false">
+                    <div class="flex-r ai-c gap-5">
+                        <svg class="bs-icon"><use xlink:href="#i-settings"></use></svg>
+                        <span>Configuración</span>
+                    </div>
+                    <svg class="bs-icon icon-rotate"><use xlink:href="#i-arrow-down-sm"></use></svg>
+                </button>
+                <div class="collapse " id="orders-collapse-2" aria-labelledby="headingOne-2" data-parent="#accordionSidebar">
+                    <ul class="btn-toggle-nav flex-c gap-10-5">
+                        <li><a href="#" class="dynamic-linkflex-r gap-5 ai-c"><svg class="bs-icon"><use xlink:href="#i-arrow-right-sm"></use></svg><span>General</span></a></li>
+                        <li><a href="#" class="dynamic-linkflex-r gap-5 ai-c"><svg class="bs-icon"><use xlink:href="#i-arrow-right-sm"></use></svg><span>Sistema</span></a></li>
+                        <li><a href="#" class="dynamic-linkflex-r gap-5 ai-c"><svg class="bs-icon"><use xlink:href="#i-arrow-right-sm"></use></svg><span>Errores</span></a></li>
+                        <li><a href="#" class="dynamic-linkflex-r gap-5 ai-c"><svg class="bs-icon"><use xlink:href="#i-arrow-right-sm"></use></svg><span>Alerta</span></a></li>
+                    </ul>
+                </div>
+            </li>
+        </ul>
+    </div>

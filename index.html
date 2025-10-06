@@ -4,181 +4,32 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Continental Hub</title>
+    
     <link href="Content/css/bootstrap.min.css" rel="stylesheet">
-    <script src="Content/js/jquery.min.js"></script>
-    <link rel="stylesheet" href="Content/css/style.css">
-    <script src="Content/js/bootstrap.bundle.min.js"></script>
-    <script src="Content/js/js-ct.js"></script>
+    <link href="Content/css/style.css" rel="stylesheet">
+    
 </head>
 <body class="icons-svg flex-c">
+    <!-- Biblioteca Iconos -->
     <div id="libreria-icons-svg"></div>
     
-    <section class="sidebar">
-        <input id="expanded-sidebar" type="checkbox" class="hide">
-        <label for="expanded-sidebar" class="label-check flex-c ai-c">
-            <svg class="bs-icon"><use xlink:href="#i-arrow-left-sm"></use></svg>
-        </label>
-        <div id="accordionSidebar" class="menu-sidebar flex-c gap-20">
-            <div class="content-logo">
-                <a href="">
-                    <picture class="img-logo-extended">
-                        <source srcset="Content/img/log-iso-1.png" type="image/jpeg">
+    <!-- Menu Left Sidebar -->
+    <div id="menuSidebarLeft" class="sidebar"></div>
     
-                        <img src="Content/img/log-iso-1.png" alt="logo" draggable="false">
-                    </picture>
-                    <picture class="img-logo-collapse">
-                        <source srcset="Content/img/logo-1.png" type="image/jpeg">
-    
-                        <img src="Content/img/logo-1.png" alt="logo" draggable="false">
-                    </picture>
-                </a>
-            </div>
-            <ul class="flex-c gap-10 btns-white btn-collapse-js">
-                <li>
-                    <a href="" class="flex-r ai-c gap-5">
-                        <svg class="bs-icon"><use xlink:href="#i-vuelos"></use></svg>
-                        <span>Reservar</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="" class="flex-r ai-c gap-5">
-                        <svg class="bs-icon"><use xlink:href="#i-table"></use></svg>
-                        <span>Tablas</span>
-                    </a>
-                </li>
-                <li>
-                    <a href="" class="flex-r ai-c gap-5">
-                        <svg class="bs-icon"><use xlink:href="#i-seguridad"></use></svg>
-                        <span>Seguridad</span>
-                    </a>
-                </li>
-                <li class="flex-c gap-10-5 accordion-item">
-                    <button class="flex-r ai-c jc-b gap-5 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-                        <div class="flex-r ai-c gap-5">
-                            <svg class="bs-icon"><use xlink:href="#i-analysis"></use></svg>
-                            <span>Orders</span>
-                        </div>
-                        <svg class="bs-icon icon-rotate"><use xlink:href="#i-arrow-down-sm"></use></svg>
-                    </button>
-                    <div class="collapse accordion-collapse" id="orders-collapse" data-bs-parent="#accordionSidebar">
-                        <ul class="btn-toggle-nav flex-c gap-10-5">
-                            <li><a href="#" class="flex-r gap-5 ai-c"><svg class="bs-icon"><use xlink:href="#i-arrow-right-sm"></use></svg><span>New</span></a></li>
-                            <li><a href="#" class="flex-r gap-5 ai-c"><svg class="bs-icon"><use xlink:href="#i-arrow-right-sm"></use></svg><span>Processed</span></a></li>
-                            <li><a href="#" class="flex-r gap-5 ai-c"><svg class="bs-icon"><use xlink:href="#i-arrow-right-sm"></use></svg><span>Shipped</span></a></li>
-                            <li><a href="#" class="flex-r gap-5 ai-c"><svg class="bs-icon"><use xlink:href="#i-arrow-right-sm"></use></svg><span>Returned</span></a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li class="flex-c gap-10-5 accordion-item">
-                    <button class="flex-r ai-c jc-b gap-5 collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse-2" aria-expanded="false">
-                        <div class="flex-r ai-c gap-5">
-                            <svg class="bs-icon"><use xlink:href="#i-settings"></use></svg>
-                            <span>Configuración</span>
-                        </div>
-                        <svg class="bs-icon icon-rotate"><use xlink:href="#i-arrow-down-sm"></use></svg>
-                    </button>
-                    <div class="collapse accordion-collapse" id="orders-collapse-2" data-bs-parent="#accordionSidebar">
-                        <ul class="btn-toggle-nav flex-c gap-10-5">
-                            <li><a href="#" class="flex-r gap-5 ai-c"><svg class="bs-icon"><use xlink:href="#i-arrow-right-sm"></use></svg><span>General</span></a></li>
-                            <li><a href="#" class="flex-r gap-5 ai-c"><svg class="bs-icon"><use xlink:href="#i-arrow-right-sm"></use></svg><span>Sistema</span></a></li>
-                            <li><a href="#" class="flex-r gap-5 ai-c"><svg class="bs-icon"><use xlink:href="#i-arrow-right-sm"></use></svg><span>Errores</span></a></li>
-                            <li><a href="#" class="flex-r gap-5 ai-c"><svg class="bs-icon"><use xlink:href="#i-arrow-right-sm"></use></svg><span>Alerta</span></a></li>
-                        </ul>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </section>
+    <!-- Header Page -->
     <header>
-        <section class="content-header width-responsive flex-r jc-b gap-20 ai-c">
-            <div class="menu-sidebar hide-desktop">
-                <div class="content-logo padding-l-20">
-                    <a href="">
-                        <picture class="img-logo-extended">
-                            <source srcset="Content/img/log-iso-2.png" type="image/jpeg">
-        
-                            <img src="Content/img/log-iso-2.png" alt="logo" draggable="false">
-                        </picture>
-                    </a>
-                </div>
-            </div>
-            <div class="menu-burger" id="usuario-menu">
-                <input id="usuario-page" type="checkbox" class="hide"/>
-                <label id="usuario-page-label" for="usuario-page" class="flex-c jc-b gap-20">
-                    <div class="btn-burger-float hide-desktop">
-                        <svg class="bs-icon"><use xlink:href="#i-menu"></use></svg>
-                    </div>
-                    <div class="content-menu-burger flex-c-r jc-b gap-20">
-                        <div class="content-input input-right">
-                            <input type="text" placeholder="Search">
-                            <button><svg class="bs-icon"><use xlink:href="#i-search"></use></svg></button>
-                        </div>
-                        <div class="flex-_c-r gap-20-30">
-                            <div class="list-contact flex-c-r gap-10 ai-c">
-                                <div class="dropdown">
-                                    <button type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" class="ct-btn-rect ct-btn-white flex-r ai-c gap-5 hide-mobile" aria-expanded="false">
-                                        <svg class="bs-icon"><use xlink:href="#i-message"></use></svg>
-                                        <span>Soporte</span>
-                                        <svg class="bs-icon"><use xlink:href="#i-arrow-down-sm"></use></svg>
-                                    </button>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                                        <div class="flex-c gap-10">
-                                            <li><a class="dropdown-item flex-r gap-5 max-230" href="mailto:cobranzasconsolidador@continentaltravel.com.pe"><svg class="bs-icon"><use xlink:href="#i-msg"></use></svg><div class="flex-c text-continue"><b>Cobranzas</b><span class="font-sz-10-12">cobranzasconsolidador@continentaltravel.com.pe</span></div></a></li>
-                                            <li><a class="dropdown-item flex-r gap-5 max-230" href="mailto:comisionesconsolidador@continentaltravel.com.pe"><svg class="bs-icon"><use xlink:href="#i-msg"></use></svg><div class="flex-c text-continue"><b>Comisiones</b><span class="font-sz-10-12">comisionesconsolidador@continentaltravel.com.pe</span></div></a></li>
-                                            <li><a class="dropdown-item flex-r gap-5 max-230" href="mailto:facturacionconsolidador@continentaltravel.com.pe"><svg class="bs-icon"><use xlink:href="#i-msg"></use></svg><div class="flex-c text-continue"><b>Facturación</b><span class="font-sz-10-12">facturacionconsolidador@continentaltravel.com.pe</span></div></a></li>
-                                            <li><a class="dropdown-item flex-r gap-5 max-230" href="mailto:contado@continentaltravel.com.pe"><svg class="bs-icon"><use xlink:href="#i-msg"></use></svg><div class="flex-c text-continue"><b>Wallet</b><span class="font-sz-10-12">contado@continentaltravel.com.pe</span></div></a></li>
-                                        </div>
-                                    </ul>
-                                </div>
-                                <div class="dropdown">
-                                    <button type="button" id="dropdownMenuButton2" data-bs-toggle="dropdown" class="ct-btn-rect ct-btn-white flex-r ai-c gap-5 hide-mobile" aria-expanded="false">
-                                        <span class="hide">Notificación</span>
-                                        <svg class="bs-icon"><use xlink:href="#i-notification"></use></svg>
-                                    </button>
-                                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-                                        <div class="flex-c gap-10">
-                                            <li><a class="dropdown-item flex-r gap-5 ai-c" href="#"><svg class="bs-icon"><use xlink:href="#i-msg"></use></svg><span>Action</span></a></li>
-                                            <li><a class="dropdown-item flex-r gap-5 ai-c" href="#"><svg class="bs-icon"><use xlink:href="#i-msg"></use></svg><span>Another action</span></a></li>
-                                            <li><a class="dropdown-item flex-r gap-5 ai-c" href="#"><svg class="bs-icon"><use xlink:href="#i-msg"></use></svg><span>Something else here</span></a></li>
-                                        </div>
-                                    </ul>
-                                </div>
-                                <button class="ct-btn-rect ct-btn-white flex-r ai-c gap-5 as-l">
-                                    <svg class="bs-icon"><use xlink:href="#i-call"></use></svg>
-                                    <span class="hide-desktop">Call Center</span>
-                                </button>
-                            </div>
-                            <div class="dropdown">
-                                <a id="dropdownMenuButton4" class="header-login flex-r ai-c gap-10" type="button" data-bs-toggle="dropdown">
-                                    <picture>
-                                        <source srcset="Content/img/use-img.jpg" type="image/jpeg">
-                                        <img src="Content/img/use-img.jpg" alt="user">
-                                    </picture>
-                                    <div class="name-user-header">
-                                        <b>Arthur Diaz</b>
-                                        <p>jdiaz@continentaltravel.com.pe</p>
-                                    </div>
-                                    <svg class="bs-icon hide-mobile"><use xlink:href="#i-arrow-down-sm"></use></svg>
-                                </a>
-                                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton4">
-                                    <div class="flex-c gap-10">
-                                        <li><a class="dropdown-item flex-r gap-5" href="#"><svg class="bs-icon"><use xlink:href="#i-user"></use></svg><div class="flex-c">Mi cuenta</div></a></li>
-                                        <li><a class="dropdown-item flex-r gap-5" href="#"><svg class="bs-icon"><use xlink:href="#i-foco"></use></svg><div class="flex-c">Historial</div></a></li>
-                                        <li><a class="dropdown-item flex-r gap-5" href="#"><svg class="bs-icon"><use xlink:href="#i-salida"></use></svg><div class="flex-c">Cerrar Sesión</div></a></li>
-                                    </div>
-                                </ul>
-                            </div>
-                        </div>
-
-                    </div>
-                </label>
-            </div>
-        </section>
+        <div id="headerPageTop"></div>
     </header>
+
+    <!-- Main Page -->
     <main>
         <section class="content-main width-responsive flex-c gap-20">
-            <article class="main-header">
+            <article class="main-header flex-r jc-b">
                 <a href=""><span>Inicio</span></a>
+                <button type="button" class="ct-btn ct-btn-white hide-desktop" data-toggle="modal" data-target="#modalSearch">
+                    <svg class="bs-icon"><use xlink:href="#i-search"></use></svg>
+                    <span class="hide-desktop">Buscar Cliente</span>   
+                </button>
             </article>
             <article class="flex-c gap-20">
                 <card class="flex-_c-r jc-b gap-10">
@@ -200,46 +51,57 @@
                         </div>
                     </div>
                 </card>
-                <card class="card-search flex-c gap-10">
-                    <div class="item-card flex-c__grid cl-6 gap-10 ai-c">
-                        <h6 class="text-l-r as-l">Buscar Cliente</h6>
-                        <input type="text" placeholder="DK">
-                        <input type="text" placeholder="Ruc">
-                        <input type="text" placeholder="Razon Social">
-                        <input type="text" placeholder="Nombre corto">
-                        <button class="ct-btn ct-btn-primary flex-r ai-c gap-5 as-r-l">
-                            <svg class="bs-icon"><use xlink:href="#i-search"></use></svg>
-                            <span>Buscar</span>    
-                        </button>
+                <div id="modalSearch" class="modal fade modal-mobile" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h6 class="modal-title" id="exampleModalLabel">Busqueda</h6>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="modal-body card-search flex-c gap-10">
+                                <div class="item-card flex-c__grid cl-6 gap-10 ai-c">
+                                    <h5 class="text-l-r as-l-c">Buscar Cliente</h5>
+                                    <input type="text" placeholder="DK">
+                                    <input type="text" placeholder="Ruc">
+                                    <input type="text" placeholder="Razon Social">
+                                    <input type="text" placeholder="Nombre corto">
+                                    <button class="ct-btn ct-btn-primary flex-r ai-c gap-5 as-r-l">
+                                        <svg class="bs-icon"><use xlink:href="#i-search"></use></svg>
+                                        <span class="hide-mobile">Buscar</span>
+                                        <span class="hide-desktop">Buscar Cliente</span>
+                                    </button>
+                                </div>
+                                <div class="item-card flex-c__grid cl-6 gap-10 ai-c">
+                                    <h5 class="text-l-r as-l-c">Elegir Fecha</h5>
+                                    <input type="date">
+                                    <input type="date">
+                                    <select name="" id="" class="span-2">
+                                        <option value="">Seleccione</option>
+                                        <option value="">opcion 1</option>
+                                        <option value="">opcion 2</option>
+                                        <option value="">opcion 3</option>
+                                    </select>
+                                    <button class="ct-btn ct-btn-secondary flex-r ai-c gap-5 as-r-l">
+                                        <svg class="bs-icon"><use xlink:href="#i-search"></use></svg>
+                                        <span class="hide-mobile">Buscar</span>
+                                        <span class="hide-desktop">Buscar Datos</span>     
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="item-card flex-c__grid cl-6 gap-10 ai-c">
-                        <h6 class="text-l-r as-l">Elegir Fecha</h6>
-                        <input type="date">
-                        <input type="date">
-                        <select name="" id="" class="span-2">
-                            <option value="">Seleccione</option>
-                            <option value="">opcion 1</option>
-                            <option value="">opcion 2</option>
-                            <option value="">opcion 3</option>
-                        </select>
-                        <button class="ct-btn ct-btn-secondary flex-r ai-c gap-5 as-r-l">
-                            <svg class="bs-icon"><use xlink:href="#i-search"></use></svg>
-                            <span>Buscar</span>    
-                        </button>
-                    </div>
-                </card>
+                </div>
             </article>
         </section>  
     </main>
+
+    <!-- Footer Page -->
     <footer>
-        <small class="content-footer width-responsive flex-r jc-b gap-20">
-            <span>
-                Copyright © 2026 <b>Continental Travel</b>  All rights reserved.      
-            </span>
-            <span>
-                Versión 1.0.1
-            </span>
-        </small>
+        <div id="footer"></div>
     </footer>
+
+    <script src="Content/js/jquery.min.js"></script>
+    <script src="Content/js/bootstrap.bundle.min.js"></script>
+    <script src="Content/js/js-ct.js"></script>
 </body>
 </html>
