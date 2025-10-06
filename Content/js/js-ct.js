@@ -7,7 +7,9 @@ $(document).ready(function(){
         $(".logo-ct").load(`${basePath}Views/Shared/_logo.html`);
     });
     $("#menuSidebarLeft").load(`${basePath}Views/Shared/_menuSidebarLeft.html`, function() {
-        $(".logo-ct").load(`${basePath}Views/Shared/_logo.html`);
+        $(".logo-ct").load(`${basePath}Views/Shared/_logo.html`, function(){
+            getHomePath();
+        });
         
         setupDynamicLinks();
 
@@ -73,4 +75,8 @@ function setupDynamicLinks() {
         // Actualizar el href
         $(this).attr('href', newHref);
     });
+}
+function getHomePath() {
+    const basePath = getBasePath();
+    return basePath === '' ? '/' : `${basePath}index.html`;
 }
