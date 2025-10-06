@@ -1,6 +1,7 @@
 $(document).ready(function(){
     /* cargando paginas */
     const basePath = getBasePath();
+    const homePath = getHomePath();
     $("#libreria-icons-svg").load(`${basePath}Views/Shared/libreria-icons.html`).hide();
     $("#headerPageTop").load(`${basePath}Views/Shared/_headerPageTop.html`, function() {
         $(".AvatarUser").load(`${basePath}Views/Shared/_avatarUser.html`);
@@ -8,7 +9,7 @@ $(document).ready(function(){
     });
     $("#menuSidebarLeft").load(`${basePath}Views/Shared/_menuSidebarLeft.html`, function() {
         $(".logo-ct").load(`${basePath}Views/Shared/_logo.html`, function(){
-            getHomePath();
+            setupHomeLinks();
         });
         
         setupDynamicLinks();
@@ -55,6 +56,31 @@ function getBasePath() {
     return '';
 }
 
+function getHomePath() {
+    // Detectar si estamos en GitHub Pages
+    const hostname = window.location.hostname;
+    const pathname = window.location.pathname;
+    
+    if (hostname.includes('github.io')) {
+        // Extraer el nombre del repositorio
+        const pathParts = pathname.split('/').filter(part => part);
+        if (pathParts.length > 0) {
+            return `/${pathParts[0]}/`;
+        }
+    }
+    
+    // Para localhost
+    return '/';
+}
+
+function setupHomeLinks() {
+    const homePath = getHomePath();
+    
+    // Actualizar todos los enlaces que apuntan al home
+    $('.dynamic-link-home').attr('href', homePath);
+    $('a[href="/"]').not('.dynamic-link-home').attr('href', homePath);
+}
+
 function setupDynamicLinks() {
     const basePath = getBasePath();
     
@@ -75,8 +101,4 @@ function setupDynamicLinks() {
         // Actualizar el href
         $(this).attr('href', newHref);
     });
-}
-function getHomePath() {
-    const basePath = getBasePath();
-    return basePath === '' ? '/' : `${basePath}index.html`;
 }
