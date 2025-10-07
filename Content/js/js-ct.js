@@ -35,7 +35,7 @@ $(document).ready(function(){
     
     /* Nombre de pagina en class */
     var path = window.location.pathname;
-    var pathParts = path.split('/').filter(Boolean); // Elimina elementos vacíos
+    var pathParts = path.split('/').filter(Boolean);
     var pageName = 'home';
 
     if (pathParts.length > 0) {
@@ -51,6 +51,9 @@ $(document).ready(function(){
     }
     $('body').addClass("page-" + pageName.toLowerCase());
 
+    /* Generar breadcrumbs dinámicamente */
+    generateBreadcrumbs();
+
     /* Menu Burger Check Right */
     $('#btn-cerrar-user').click(function(e) {
         $('#usuario-page').prop('checked', false);
@@ -61,38 +64,29 @@ function getBasePath() {
     const currentPath = window.location.pathname;
     const hostname = window.location.hostname;
     
-    // Para GitHub Pages
     if (hostname.includes('github.io')) {
         const pathParts = currentPath.split('/').filter(part => part);
         
-        // Si estamos en la raíz del repo o index.html
         if (pathParts.length <= 1 || (pathParts.length === 2 && pathParts[1] === 'index.html')) {
             return `/${pathParts[0]}/`;
         }
         
-        // Calcular cuántos niveles necesitamos subir
         const depth = pathParts.length - (pathParts[pathParts.length - 1].includes('.html') ? 2 : 1);
         const prefix = '../'.repeat(depth);
         
         return prefix;
     }
     
-    // Para localhost
-    // Si estamos en la raíz
     if (currentPath === '/' || currentPath === '/index.html') {
         return '';
     }
     
-    // Contar cuántas carpetas hay desde la raíz hasta el archivo actual
     const pathParts = currentPath.split('/').filter(part => part && part !== 'index.html');
     
-    // Si solo hay un archivo .html sin carpetas
     if (pathParts.length === 1 && pathParts[0].endsWith('.html')) {
         return '';
     }
     
-    // Calcular cuántos "../" necesitamos
-    // Restamos 1 porque el último elemento es el archivo
     const depth = pathParts[pathParts.length - 1].endsWith('.html') 
         ? pathParts.length - 1 
         : pathParts.length;
@@ -112,7 +106,6 @@ function getHomePath() {
         }
     }
     
-    // Para localhost
     return '/';
 }
 
@@ -128,7 +121,6 @@ function getImgPath() {
         }
     }
     
-    // Para localhost
     const basePath = getBasePath();
     return `${basePath}Content/img/`;
 }
@@ -188,16 +180,95 @@ function setupDynamicLinks() {
             newHref = getHomePath();
         } 
         else if (originalHref.endsWith('.html')) {
-            // Detectar si el href ya incluye una ruta de carpeta
             if (originalHref.includes('/')) {
-                // Si ya tiene una ruta como "Reservas/index.html"
                 newHref = `${basePath}Views/${originalHref}`;
             } else {
-                // Si es solo un archivo como "Tablas.html"
                 newHref = `${basePath}Views/Pages/${originalHref}`;
             }
         }
         
         $(this).attr('href', newHref);
     });
+}
+
+function generateBreadcrumbs() {
+    // Buscar el contenedor de breadcrumbs
+    const breadcrumbContainer = $('#breadcrumbs');
+    
+    // Si no existe el contenedor, no hacer nada
+    if (breadcrumbContainer.length === 0) {
+        return;
+    }
+    
+    const hostname = window.location.hostname;
+    const pathname = window.location.pathname;
+    const homePath = getHomePath();
+    
+    let pathParts = pathname.split('/').filter(part => part);
+    
+    // Si estamos en GitHub Pages, eliminar el nombre del repo
+    if (hostname.includes('github.io') && pathParts.length > 0) {
+        pathParts.shift(); // Eliminar el nombre del repo
+    }
+    
+    // Filtrar carpetas que no queremos mostrar
+    const excludeFolders = ['Views', 'Pages', 'Shared', 'Content'];
+    pathParts = pathParts.filter(part => !excludeFolders.includes(part));
+    
+    // Limpiar el contenedor
+    breadcrumbContainer.empty();
+    
+    // Agregar el enlace de inicio
+    const homeLink = $('<a>').attr('href', homePath).addClass("flex-r ai-c").html(`
+        <svg class="bs-icon"><use xlink:href="#i-home"></use></svg>
+        <span>Inicio</span>
+    `);
+    breadcrumbContainer.append($('<li>').append(homeLink));
+    
+    // página de inicio, terminar aquí
+    if (pathParts.length === 0 || (pathParts.length === 1 && pathParts[0] === 'index.html')) {
+        breadcrumbContainer.find('li').last().addClass('active');
+        return;
+    }
+    
+    // Construir 
+    for (let i = 0; i < pathParts.length; i++) {
+        let part = pathParts[i];
+        
+        if (i === pathParts.length - 1 && part.endsWith('.html')) {
+            const fileName = part.replace('.html', '');
+            const displayName = formatBreadcrumbName(fileName);
+            
+            if (fileName === 'index' && i > 0) {
+                continue;
+            }
+            
+            const currentItem = $('<span>').text(displayName);
+            breadcrumbContainer.append($('<li>').addClass('active').append(currentItem));
+        } 
+        else if (!part.endsWith('.html')) {
+            const displayName = formatBreadcrumbName(part);
+            
+            const folderItem = $('<span>').text(displayName);
+            breadcrumbContainer.append($('<li>').append(folderItem));
+        }
+    }
+}
+
+function formatBreadcrumbName(name) {
+    const customNames = {
+        'index': 'Inicio',
+        'Reservas': 'Mis Reservas',
+        'Tablas': 'Gestión de Tablas',
+        'Pages': 'Páginas'
+    };
+    
+    if (customNames[name]) {
+        return customNames[name];
+    }
+
+    name = name.replace(/[-_]/g, ' ');
+    return name.split(' ')
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join(' ');
 }

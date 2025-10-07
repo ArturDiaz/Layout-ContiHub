@@ -23,24 +23,26 @@
 
     <!-- Main Page -->
     <main>
-        <section class="content-main width-responsive flex-c gap-20">
+        <section class="content-main width-responsive flex-c gap-10">
             <article class="main-header flex-r jc-b">
-                <a href=""><span>Inicio</span></a>
+                <nav aria-label="breadcrumb">
+                    <ol id="breadcrumbs" class="list-breadcrumb flex-r gap-5 ai-c"></ol>
+                </nav>
                 <button type="button" class="ct-btn ct-btn-white hide-desktop" data-toggle="modal" data-target="#modalSearch">
                     <svg class="bs-icon"><use xlink:href="#i-search"></use></svg>
                     <span class="hide-desktop">Buscar Cliente</span>   
                 </button>
             </article>
-            <article class="flex-c gap-20">
+            <article class="flex-c gap-10">
                 <card class="flex-_c-r jc-b gap-10">
-                    <div class="item-card flex-c gap-10">
+                    <div class="item-card flex-c-r gap-10-30">
                         <div class="flex-c">
-                            <span class="font-sz-12">Vendedor(a)</span>
-                            <b>Nombre del Vendedor</b>
+                            <span>Vendedor(a)</span>
+                            <h4><b>Nombre del Vendedor</b></h4>
                         </div>
                         <div class="flex-c">
-                            <span class="font-sz-12">Cobrador(a)</span>
-                            <b>Nombre del Cobrador</b>
+                            <span>Cobrador(a)</span>
+                            <h4><b>Nombre del Cobrador</b></h4>
                         </div>
                     </div>
                     <div class="item-card badge-money flex-r ai-c gap-5 ct-badge badge-yellow">
@@ -90,6 +92,136 @@
                             </div>
                         </div>
                     </div>
+                </div>
+                <card class="card-product-home flex-c__grid cl-5 gap-10">
+                    <div class="item-card flex-c ai-c jc-c gap-5 text-c">
+                        <svg class="bs-icon icon-title"><use xlink:href="#i-hoteles"></use></svg>
+                        <div class="flex-c">
+                            <span>Información del Cliente</span>
+                            <h4>Nombre de la empresa y/o cliente</h4>
+                        </div>
+                        <div class="flex-c">
+                            <span>RUC</span>
+                            <h4>101000 000 000 000</h4>
+                        </div>
+                    </div>
+                    <div class="item-card span-4 flex-c gap-10">
+                        <div class="row-card flex-c gap-5">
+                            <div class="flex-r jc-b ai-c">
+                                <div class="flex-c-r ai-l-r gap-5"><h4>VENTA</h4><span>(25/01/2025 al 25/02/2025)</span></div>
+                                <button class="ct-btn ct-btn-primary-pastel ai-c"><svg class="bs-icon"><use xlink:href="#i-file"></use></svg><span>Reporte de ventas</span></button>
+                            </div>
+                            <div class="d-grid cl-3-5 gap-10">
+                                <div class="flex-c">
+                                    <span>Total</span>
+                                    <p>USD 0.00</p>
+                                </div>
+                                <div class="flex-c">
+                                    <span>Total</span>
+                                    <p>USD 0.00</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="line-h-20"></div>
+                        <div class="row-card flex-c gap-5">
+                            <div class="flex-r ai-c">
+                                <h4>DEUDA</h4>
+                            </div>
+                            <div class="d-grid cl-3-5 gap-10">
+                                <div class="flex-r ai-r gap-10">
+                                    <div class="flex-c">
+                                        <span>Vencida</span>
+                                        <p>USD 0.00</p>
+                                    </div>
+                                    <a href="" class="ct-btn-rect-sm ct-btn-scale-20 flex-r"><svg class="bs-icon"><use xlink:href="#i-file"></use></svg></a>
+                                </div>
+                                <div class="flex-r ai-r gap-10">
+                                    <div class="flex-c">
+                                        <span>En fecha</span>
+                                        <p>USD 0.00</p>
+                                    </div>
+                                    <a href="" class="ct-btn-rect-sm ct-btn-scale-20 flex-r"><svg class="bs-icon"><use xlink:href="#i-file"></use></svg></a>
+                                </div>
+                                <div class="flex-r ai-r gap-10">
+                                    <div class="flex-c">
+                                        <span>Total</span>
+                                        <p>USD 0.00</p>
+                                    </div>
+                                    <a href="" class="ct-btn-rect-sm ct-btn-scale-20 flex-r"><svg class="bs-icon"><use xlink:href="#i-file"></use></svg></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="line-h-20"></div>
+                        <div class="row-card flex-c gap-5">
+                            <div class="flex-r ai-c">
+                                <h4>LÍNEA DE CREDITO</h4>
+                            </div>
+                            <div class="d-grid cl-3-5 gap-10">
+                                <div class="flex-r jc-b gap-10 ai-c">
+                                    <div class="flex-c">
+                                        <span>Limite + Wallet</span>
+                                        <p>USD 0.00</p>
+                                    </div>
+                                    <svg class="bs-icon"><use xlink:href="#i-arrow-right"></use></svg>
+                                </div>
+                                <div class="flex-r gap-10 bg-scale-10 padding-10">
+                                    <div class="flex-c">
+                                        <span>Limite</span>
+                                        <p>USD 0.00</p>
+                                    </div>
+                                </div>
+                                <div class="flex-r gap-10 bg-scale-10 padding-10">
+                                    <div class="flex-c">
+                                        <span>Wallet</span>
+                                        <p>USD 0.00</p>
+                                    </div>
+                                </div>
+                                <div class="flex-r gap-10">
+                                    <div class="flex-c">
+                                        <span>Utilizado</span>
+                                        <p>USD 0.00</p>
+                                    </div>
+                                </div>
+                                <div class="flex-r gap-10">
+                                    <div class="flex-c">
+                                        <span>Disponible</span>
+                                        <p>USD 0.00</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="line-h-20"></div>
+                        <div class="row-card flex-c gap-5">
+                            <div class="flex-r ai-c">
+                                <h4>INFORMACIÓN</h4>
+                            </div>
+                            <div class="d-grid cl-3-5 gap-10">
+                                <div class="flex-r gap-10">
+                                    <div class="flex-c">
+                                        <span>Pago</span>
+                                        <p>XXXXXXXXXX</p>
+                                    </div>
+                                </div>
+                                <div class="flex-r gap-10">
+                                    <div class="flex-c">
+                                        <span>En tarjeta de credito</span>
+                                        <p>XXX-XXXXXXXXXX</p>
+                                    </div>
+                                </div>
+                                <div class="flex-r gap-10">
+                                    <div class="flex-c">
+                                        <span>Convenio</span>
+                                        <p>XXXXXXXXXXX</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </card>
+                <div class="cont-action as-r flex-r gap-10">
+                    <button class="ct-btn ct-btn-secondary ai-c"><svg class="bs-icon"><use xlink:href="#i-dolar"></use></svg><span>Comisión</span></button>
+                    <button class="ct-btn ct-btn-secondary ai-c"><svg class="bs-icon"><use xlink:href="#i-file"></use></svg><span>Documentos</span></button>
+                    <button class="ct-btn ct-btn-primary ai-c"><svg class="bs-icon"><use xlink:href="#i-ticket"></use></svg><span>Boletos</span></button>
                 </div>
             </article>
         </section>  

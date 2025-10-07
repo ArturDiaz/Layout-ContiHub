@@ -33,12 +33,13 @@
 	--c-transparent-50: #2b293d6d;
 	--c-transparent-60: #2b293d8e;
 
-	--c-primary-10: #d6f1ff;
-	--c-primary-20: #b5e9ff;
-	--c-primary-30: #83ddff;
-	--c-primary-40: #48c8ff;
-	--c-primary-50: #1ea9ff;
-	--c-primary-60: #068bff;
+	--c-primary-10: #f2f3ff;
+	--c-primary-20: #e7e7ff;
+	--c-primary-30: #d2d3ff;
+	--c-primary-40: #afaeff;
+	--c-primary-50: #afaeff;
+	--c-primary-60: #8780ff;
+	--c-primary-70: #614dff;
 
 	--c-primary: #3312c4;
 	--c-primary-hover: #19095f;
@@ -116,6 +117,9 @@
 	/* --font-gotham: 'Gotham Rounded';
 	--font-exo: "Exo 2", sans-serif; */
 
+	--bg-lineal-primary-m: -moz-linear-gradient(0deg,  var(--c-primary), var(--c-primary-hover));
+	--bg-lineal-primary-w: -webkit-linear-gradient(0deg,  var(--c-primary), var(--c-primary-hover));
+	--bg-lineal-primary-o: -o-linear-gradient(0deg,  var(--c-primary), var(--c-primary-hover));
 	--bg-lineal-primary: linear-gradient(0deg,  var(--c-primary), var(--c-primary-hover));
 
 	--box-sh: 0px 4px 10px #2b293d17;
