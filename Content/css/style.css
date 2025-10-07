@@ -17,8 +17,8 @@ body{
     background: var(--c-scale-10);
     color: var(--c-scale-90);
     min-height: 100vh;
-    @media (min-width:1024px){
-        
+    @media (prefers-color-scheme: dark){
+        background: var(--c-scale-10);
     }
 }
 /* Background */
@@ -823,6 +823,12 @@ footer{
     padding: 10px;
     z-index: 10;
     transition: all .3s ease;
+    @media (prefers-color-scheme: dark){
+        background: var(--bg-lineal-primary-m);
+        background: var(--bg-lineal-primary-o);
+        background: var(--bg-lineal-primary-w);
+        background: var(--bg-lineal-primary);
+    }
     @media (min-width:768px){
         min-width: 30%;
         transition: all .3s ease;
@@ -1187,7 +1193,7 @@ header{
 /*tablet Menu Burger Right Mobile*/
 @media (max-width:1023px){
     body{
-        /* overflow: hidden; */
+        overflow-x: hidden;
     }
     .content-menu-burger .list-contact{
         max-height: calc(60vh - 100px);
