@@ -3,10 +3,16 @@ $(document).ready(function(){
     const basePath = getBasePath();
     const homePath = getHomePath();
     const imgPath = getImgPath();
+    
     $("#libreria-icons-svg").load(`${basePath}Views/Shared/libreria-icons.html`).hide();
     $("#headerPageTop").load(`${basePath}Views/Shared/_headerPageTop.html`, function() {
-        $(".AvatarUser").load(`${basePath}Views/Shared/_avatarUser.html`);
-        $(".logo-ct").load(`${basePath}Views/Shared/_logo.html`);
+        $(".AvatarUser").load(`${basePath}Views/Shared/_avatarUser.html`, function() {
+            fixImagePaths();
+        });
+        $(".logo-ct").load(`${basePath}Views/Shared/_logo.html`, function() {
+            setupHomeLinks();
+            fixImagePaths();
+        });
     });
     $("#menuSidebarLeft").load(`${basePath}Views/Shared/_menuSidebarLeft.html`, function() {
         $(".logo-ct").load(`${basePath}Views/Shared/_logo.html`, function(){
@@ -27,44 +33,78 @@ $(document).ready(function(){
     });
     $("#footer").load(`${basePath}Views/Shared/_footer.html`);
     
-
-
     /* Nombre de pagina en class */
     var path = window.location.pathname;
-    var pageName = path.split('/').pop().split('.')[0];
-    $('body').addClass("page-"+pageName.toLowerCase());
+    var pathParts = path.split('/').filter(Boolean); // Elimina elementos vacíos
+    var pageName = 'home';
+
+    if (pathParts.length > 0) {
+        var lastPart = pathParts[pathParts.length - 1];
+        if (lastPart.includes('.')) {
+            pageName = lastPart.split('.')[0];
+            pathParts.pop();
+        }
+        if (pathParts.length > 0) {
+            var folderName = pathParts[pathParts.length - 1];
+            pageName = folderName + '-' + pageName;
+        }
+    }
+    $('body').addClass("page-" + pageName.toLowerCase());
 
     /* Menu Burger Check Right */
     $('#btn-cerrar-user').click(function(e) {
         $('#usuario-page').prop('checked', false);
     });
-
 })
 
 function getBasePath() {
     const currentPath = window.location.pathname;
+    const hostname = window.location.hostname;
+    
+    // Para GitHub Pages
+    if (hostname.includes('github.io')) {
+        const pathParts = currentPath.split('/').filter(part => part);
+        
+        // Si estamos en la raíz del repo o index.html
+        if (pathParts.length <= 1 || (pathParts.length === 2 && pathParts[1] === 'index.html')) {
+            return `/${pathParts[0]}/`;
+        }
+        
+        // Calcular cuántos niveles necesitamos subir
+        const depth = pathParts.length - (pathParts[pathParts.length - 1].includes('.html') ? 2 : 1);
+        const prefix = '../'.repeat(depth);
+        
+        return prefix;
+    }
+    
+    // Para localhost
+    // Si estamos en la raíz
     if (currentPath === '/' || currentPath === '/index.html') {
         return '';
     }
     
-    // Si estamos en Views/Pages/
-    if (currentPath.includes('/Views/Pages/')) {
-        return '../../';
+    // Contar cuántas carpetas hay desde la raíz hasta el archivo actual
+    const pathParts = currentPath.split('/').filter(part => part && part !== 'index.html');
+    
+    // Si solo hay un archivo .html sin carpetas
+    if (pathParts.length === 1 && pathParts[0].endsWith('.html')) {
+        return '';
     }
-    // Si estamos en Views/
-    if (currentPath.includes('/Views/')) {
-        return '../';
-    }
-    return '';
+    
+    // Calcular cuántos "../" necesitamos
+    // Restamos 1 porque el último elemento es el archivo
+    const depth = pathParts[pathParts.length - 1].endsWith('.html') 
+        ? pathParts.length - 1 
+        : pathParts.length;
+    
+    return '../'.repeat(depth);
 }
 
 function getHomePath() {
-    // Detectar si estamos en GitHub Pages
     const hostname = window.location.hostname;
     const pathname = window.location.pathname;
     
     if (hostname.includes('github.io')) {
-        // Extraer el nombre del repositorio
         const pathParts = pathname.split('/').filter(part => part);
         if (pathParts.length > 0) {
             const repoName = pathParts[0];
@@ -72,12 +112,8 @@ function getHomePath() {
         }
     }
     
-    // Para localhost o dominio personalizado
-    const basePath = getBasePath();
-    if (basePath === '') {
-        return '/';
-    }
-    return `${basePath}index.html`;
+    // Para localhost
+    return '/';
 }
 
 function getImgPath() {
@@ -85,7 +121,6 @@ function getImgPath() {
     const pathname = window.location.pathname;
     
     if (hostname.includes('github.io')) {
-        // GitHub Pages
         const pathParts = pathname.split('/').filter(part => part);
         if (pathParts.length > 0) {
             const repoName = pathParts[0];
@@ -102,20 +137,16 @@ function fixImagePaths() {
     const imgPath = getImgPath();
     
     setTimeout(function() {
-        // Corregir todas las imágenes que tengan rutas relativas incorrectas
         $('img').each(function() {
             const currentSrc = $(this).attr('src');
             
-            // Si la ruta contiene ../../Content/img/ o ../Content/img/
             if (currentSrc && (currentSrc.includes('../../Content/img/') || currentSrc.includes('../Content/img/') || currentSrc.includes('Content/img/'))) {
                 const fileName = currentSrc.split('/').pop();
                 const newSrc = imgPath + fileName;
                 $(this).attr('src', newSrc);
-                console.log('Imagen corregida:', fileName, 'a', newSrc);
             }
         });
         
-        // Corregir sources de picture
         $('source').each(function() {
             const currentSrcset = $(this).attr('srcset');
             
@@ -123,7 +154,6 @@ function fixImagePaths() {
                 const fileName = currentSrcset.split('/').pop();
                 const newSrcset = imgPath + fileName;
                 $(this).attr('srcset', newSrcset);
-                console.log('Source corregida:', fileName, 'a', newSrcset);
             }
         });
     }, 50);
@@ -132,14 +162,11 @@ function fixImagePaths() {
 function setupHomeLinks() {
     const homePath = getHomePath();
     
-    // Usar un timeout muy corto para asegurar que el DOM esté listo
     setTimeout(function() {
-        // Actualizar todos los enlaces que apuntan al home
         $('.dynamic-link-home').each(function() {
             $(this).attr('href', homePath);
         });
         
-        // También actualizar cualquier enlace con href="/"
         $('a[href="/"], a[href="index.html"]').not('.dynamic-link').each(function() {
             $(this).attr('href', homePath);
         });
@@ -149,26 +176,28 @@ function setupHomeLinks() {
 function setupDynamicLinks() {
     const basePath = getBasePath();
     
-    // Recorrer todos los enlaces con clase dynamic-link
     $('.dynamic-link').each(function() {
         const originalHref = $(this).attr('href');
         let newHref = originalHref;
         
-        // Si es vacío o "#", ignorar
         if (!originalHref || originalHref === '#' || originalHref === '') {
             return;
         }
         
-        // Si es index.html, va al home
         if (originalHref === 'index.html' || originalHref === '/') {
             newHref = getHomePath();
         } 
-        // Si es cualquier otra página, va a Views/Pages/
         else if (originalHref.endsWith('.html')) {
-            newHref = `${basePath}Views/Pages/${originalHref}`;
+            // Detectar si el href ya incluye una ruta de carpeta
+            if (originalHref.includes('/')) {
+                // Si ya tiene una ruta como "Reservas/index.html"
+                newHref = `${basePath}Views/${originalHref}`;
+            } else {
+                // Si es solo un archivo como "Tablas.html"
+                newHref = `${basePath}Views/Pages/${originalHref}`;
+            }
         }
         
-        // Actualizar el href
         $(this).attr('href', newHref);
     });
 }
