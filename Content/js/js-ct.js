@@ -2,6 +2,7 @@ $(document).ready(function(){
     /* cargando paginas */
     const basePath = getBasePath();
     const homePath = getHomePath();
+    const imgPath = getImgPath();
     $("#libreria-icons-svg").load(`${basePath}Views/Shared/libreria-icons.html`).hide();
     $("#headerPageTop").load(`${basePath}Views/Shared/_headerPageTop.html`, function() {
         $(".AvatarUser").load(`${basePath}Views/Shared/_avatarUser.html`);
@@ -10,6 +11,7 @@ $(document).ready(function(){
     $("#menuSidebarLeft").load(`${basePath}Views/Shared/_menuSidebarLeft.html`, function() {
         $(".logo-ct").load(`${basePath}Views/Shared/_logo.html`, function(){
             setupHomeLinks();
+            fixImagePaths();
         });
         
         setupDynamicLinks();
@@ -78,6 +80,55 @@ function getHomePath() {
     return `${basePath}index.html`;
 }
 
+function getImgPath() {
+    const hostname = window.location.hostname;
+    const pathname = window.location.pathname;
+    
+    if (hostname.includes('github.io')) {
+        // GitHub Pages
+        const pathParts = pathname.split('/').filter(part => part);
+        if (pathParts.length > 0) {
+            const repoName = pathParts[0];
+            return `/${repoName}/Content/img/`;
+        }
+    }
+    
+    // Para localhost
+    const basePath = getBasePath();
+    return `${basePath}Content/img/`;
+}
+
+function fixImagePaths() {
+    const imgPath = getImgPath();
+    
+    setTimeout(function() {
+        // Corregir todas las imágenes que tengan rutas relativas incorrectas
+        $('img').each(function() {
+            const currentSrc = $(this).attr('src');
+            
+            // Si la ruta contiene ../../Content/img/ o ../Content/img/
+            if (currentSrc && (currentSrc.includes('../../Content/img/') || currentSrc.includes('../Content/img/') || currentSrc.includes('Content/img/'))) {
+                const fileName = currentSrc.split('/').pop();
+                const newSrc = imgPath + fileName;
+                $(this).attr('src', newSrc);
+                console.log('Imagen corregida:', fileName, 'a', newSrc);
+            }
+        });
+        
+        // Corregir sources de picture
+        $('source').each(function() {
+            const currentSrcset = $(this).attr('srcset');
+            
+            if (currentSrcset && (currentSrcset.includes('../../Content/img/') || currentSrcset.includes('../Content/img/') || currentSrcset.includes('Content/img/'))) {
+                const fileName = currentSrcset.split('/').pop();
+                const newSrcset = imgPath + fileName;
+                $(this).attr('srcset', newSrcset);
+                console.log('Source corregida:', fileName, 'a', newSrcset);
+            }
+        });
+    }, 50);
+}
+
 function setupHomeLinks() {
     const homePath = getHomePath();
     
@@ -92,8 +143,6 @@ function setupHomeLinks() {
         $('a[href="/"], a[href="index.html"]').not('.dynamic-link').each(function() {
             $(this).attr('href', homePath);
         });
-        
-        console.log('Home links configurados a:', homePath);
     }, 50);
 }
 
@@ -122,6 +171,4 @@ function setupDynamicLinks() {
         // Actualizar el href
         $(this).attr('href', newHref);
     });
-    
-    console.log('Dynamic links configurados con basePath:', basePath);
 }
