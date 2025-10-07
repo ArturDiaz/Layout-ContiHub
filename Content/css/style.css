@@ -1187,7 +1187,7 @@ header{
 /*tablet Menu Burger Right Mobile*/
 @media (max-width:1023px){
     body{
-        overflow: hidden;
+        /* overflow: hidden; */
     }
     .content-menu-burger .list-contact{
         max-height: calc(60vh - 100px);
