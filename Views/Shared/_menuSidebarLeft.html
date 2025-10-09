@@ -8,16 +8,27 @@
             <div class="logo-ct"></div>
         </div>
         <ul class="flex-c gap-10 btns-white btn-collapse-js">
-            <li>
-                <a href="Reservas/index.html" class="dynamic-link flex-r ai-c gap-5">
-                    <svg class="bs-icon"><use xlink:href="#i-vuelos"></use></svg>
-                    <span>Reservas</span>
-                </a>
+            <li class="flex-c gap-10-5 accordion-item">
+                <button id="headingOne-1" class="flex-r ai-c jc-b gap-5 collapsed" data-toggle="collapse" data-target="#orders-collapse" aria-expanded="false">
+                    <div class="flex-r ai-c gap-5">
+                        <svg class="bs-icon"><use xlink:href="#i-vuelos"></use></svg>
+                        <span>Reservas</span>
+                    </div>
+                    <svg class="bs-icon icon-rotate"><use xlink:href="#i-arrow-down-sm"></use></svg>
+                </button>
+                <div class="collapse" id="orders-collapse" aria-labelledby="headingOne-1" data-parent="#accordionSidebar">
+                    <ul class="btn-toggle-nav flex-c gap-10-5">
+                        <li><a href="Reservas/LoginKontrol.html" class="dynamic-link flex-r gap-5 ai-c"><svg class="bs-icon"><use xlink:href="#i-arrow-right-sm"></use></svg><span>Kontrol</span></a></li>
+                        <li><a href="Pages/Login.html" class="dynamic-link flex-r gap-5 ai-c"><svg class="bs-icon"><use xlink:href="#i-arrow-right-sm"></use></svg><span>TrotaBooking</span></a></li>
+                        <li><a href="Pages/Login.html" class="dynamic-link flex-r gap-5 ai-c"><svg class="bs-icon"><use xlink:href="#i-arrow-right-sm"></use></svg><span>Latamndc</span></a></li>
+                        <li><a href="Pages/Login.html" class="dynamic-link flex-r gap-5 ai-c"><svg class="bs-icon"><use xlink:href="#i-arrow-right-sm"></use></svg><span>Reservas Latam</span></a></li>
+                    </ul>
+                </div>
             </li>
             <li>
-                <a href="Pages/About.html" class="dynamic-link flex-r ai-c gap-5">
+                <a href="Tablas/Comisiones.html" class="dynamic-link flex-r ai-c gap-5">
                     <svg class="bs-icon"><use xlink:href="#i-table"></use></svg>
-                    <span>About</span>
+                    <span>Tablas de comisiones</span>
                 </a>
             </li>
             <li>
@@ -37,7 +48,7 @@
                 <div class="collapse" id="orders-collapse" aria-labelledby="headingOne-1" data-parent="#accordionSidebar">
                     <ul class="btn-toggle-nav flex-c gap-10-5">
                         <li><a href="Pages/Contact.html" class="dynamic-link flex-r gap-5 ai-c"><svg class="bs-icon"><use xlink:href="#i-arrow-right-sm"></use></svg><span>New</span></a></li>
-                        <li><a href="Tablas/index.html" class="dynamic-link flex-r gap-5 ai-c"><svg class="bs-icon"><use xlink:href="#i-arrow-right-sm"></use></svg><span>Processed</span></a></li>
+                        <li><a href="Tablas/Comisiones.html" class="dynamic-link flex-r gap-5 ai-c"><svg class="bs-icon"><use xlink:href="#i-arrow-right-sm"></use></svg><span>Processed</span></a></li>
                         <li><a href="Pages/Contact.html" class="dynamic-link flex-r gap-5 ai-c"><svg class="bs-icon"><use xlink:href="#i-arrow-right-sm"></use></svg><span>Shipped</span></a></li>
                         <li><a href="Pages/Contact.html" class="dynamic-link flex-r gap-5 ai-c"><svg class="bs-icon"><use xlink:href="#i-arrow-right-sm"></use></svg><span>Returned</span></a></li>
                     </ul>

@@ -42,7 +42,7 @@
 	--c-primary-70: #614dff;
 
 	--c-primary: #3312c4;
-	--c-primary-hover: #19095f;
+	--c-primary-hover: #090031;
 
 	--c-secondary-10: #edfdfe;
 	--c-secondary-20: #d1fafc;
@@ -121,6 +121,11 @@
 	--bg-lineal-primary-w: -webkit-linear-gradient(0deg,  var(--c-primary), var(--c-primary-hover));
 	--bg-lineal-primary-o: -o-linear-gradient(0deg,  var(--c-primary), var(--c-primary-hover));
 	--bg-lineal-primary: linear-gradient(0deg,  var(--c-primary), var(--c-primary-hover));
+
+	--bg-lineal-primary-2-m: -moz-linear-gradient(0deg,  var(--c-primary) -80%, var(--c-primary-hover) );
+	--bg-lineal-primary-2-w: -webkit-linear-gradient(0deg,  var(--c-primary) -80%, var(--c-primary-hover) );
+	--bg-lineal-primary-2-o: -o-linear-gradient(0deg,  var(--c-primary) -80%, var(--c-primary-hover) );
+	--bg-lineal-primary-2: linear-gradient(0deg,  var(--c-primary) -80%, var(--c-primary-hover) );
 
 	--box-sh: 0px 4px 10px #2b293d17;
 	--box-sh-20: 0px 4px 10px #2b293d47;
