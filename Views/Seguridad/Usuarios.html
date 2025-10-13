@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tablas de Comisiones</title>
+    
+    <link href="../../Content/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../Content/css/style.css" rel="stylesheet">
+    
+</head>
+<body class="icons-svg flex-c">
+    <!-- Biblioteca Iconos -->
+    <div id="libreria-icons-svg"></div>
+    
+    <!-- Menu Left Sidebar -->
+    <div id="menuSidebarLeft" class="sidebar"></div>
+    
+    <!-- Header Page -->
+    <header>
+        <div id="headerPageTop"></div>
+    </header>
+
+    <!-- Main Page -->
+    <main>
+        <section class="content-main width-responsive flex-c gap-20">
+            <nav aria-label="breadcrumb">
+                <ol id="breadcrumbs" class="list-breadcrumb flex-r gap-5 ai-c"></ol>
+            </nav>
+            <article class="flex-c gap-20">
+                <h4>Listado Usuarios</h4>
+                <card class="flex-c gap-10">
+                    <div class="flex-r gap-10">
+
+                        <a href="" class="ct-btn ct-btn-primary flex-r ai-c gap-5">
+                            <svg class="bs-icon"><use xlink:href="#i-add-user"></use></svg>
+                            <span>Add</span>
+                        </a>
+                        <input type="text" placeholder="Email Usuario">
+                        <select name="" id="" class="span-2">
+                            <option value="" class="c-scale-70">Todos los usuarios</option>
+                            <option value="">opcion 1</option>
+                            <option value="">opcion 2</option>
+                            <option value="">opcion 3</option>
+                        </select>
+                        <select name="" id="" class="span-2">
+                            <option value="" class="c-scale-70">Seleccionar Agencia</option>
+                            <option value="">opcion 1</option>
+                            <option value="">opcion 2</option>
+                            <option value="">opcion 3</option>
+                        </select>
+                        <button class="ct-btn ct-btn-secondary fle-r ai-c gap-5">
+                            <svg class="bs-icon"><use xlink:href="#i-search"></use></svg>
+                            <span>Buscar</span>
+                        </button>
+                    </div>
+                    <div class="w-100" id="tabla-user" >
+                        <table width="100%">
+                            <tr><th><input type="checkbox"></th><th>ID</th><th>Agencia</th><th>Doc</th><th>N°Doc.</th><th>Email Usuario</th><th>Usuario</th><th>Estado</th><th></th></tr>
+                            <tr><td><input type="checkbox"></td><td>002</td><td>Name Empresa</td><td>Passaport</td><td>8934209273</td><td>empresa@agencia.com</td><td>Agencia 32</td><td><div class="c-green">Activo</div></td><td class="flex-r gap-10"><a href="" class="ct-btn-rect ct-btn-scale-10 fle-r ai-c"><svg class="bs-icon"><use xlink:href="#i-edit"></use></svg></a><a href="" class="ct-btn-rect ct-btn-scale-10 fle-r ai-c"><svg class="bs-icon"><use xlink:href="#i-tachito"></use></svg></a></td></tr>
+                            <tr><td><input type="checkbox"></td><td>003</td><td>Name Empresa</td><td>Passaport</td><td>8934209273</td><td>empresa@agencia.com</td><td>Agencia 32</td><td><div class="c-green">Activo</div></td><td class="flex-r gap-10"><a href="" class="ct-btn-rect ct-btn-scale-10 fle-r ai-c"><svg class="bs-icon"><use xlink:href="#i-edit"></use></svg></a><a href="" class="ct-btn-rect ct-btn-scale-10 fle-r ai-c"><svg class="bs-icon"><use xlink:href="#i-tachito"></use></svg></a></td></tr>
+                            <tr><td><input type="checkbox"></td><td>004</td><td>Name Empresa</td><td>Passaport</td><td>8934209273</td><td>empresa@agencia.com</td><td>Agencia 32</td><td><div class="c-green">Activo</div></td><td class="flex-r gap-10"><a href="" class="ct-btn-rect ct-btn-scale-10 fle-r ai-c"><svg class="bs-icon"><use xlink:href="#i-edit"></use></svg></a><a href="" class="ct-btn-rect ct-btn-scale-10 fle-r ai-c"><svg class="bs-icon"><use xlink:href="#i-tachito"></use></svg></a></td></tr>
+                            <tr><td><input type="checkbox"></td><td>005</td><td>Name Empresa</td><td>Passaport</td><td>8934209273</td><td>empresa@agencia.com</td><td>Agencia 32</td><td><div class="c-red">No Activo</div></td><td class="flex-r gap-10"><a href="" class="ct-btn-rect ct-btn-scale-10 fle-r ai-c"><svg class="bs-icon"><use xlink:href="#i-edit"></use></svg></a><a href="" class="ct-btn-rect ct-btn-scale-10 fle-r ai-c"><svg class="bs-icon"><use xlink:href="#i-tachito"></use></svg></a></td></tr>
+                            <tr><td><input type="checkbox"></td><td>006</td><td>Name Empresa</td><td>Passaport</td><td>8934209273</td><td>empresa@agencia.com</td><td>Agencia 32</td><td><div class="c-green">Activo</div></td><td class="flex-r gap-10"><a href="" class="ct-btn-rect ct-btn-scale-10 fle-r ai-c"><svg class="bs-icon"><use xlink:href="#i-edit"></use></svg></a><a href="" class="ct-btn-rect ct-btn-scale-10 fle-r ai-c"><svg class="bs-icon"><use xlink:href="#i-tachito"></use></svg></a></td></tr>
+                            <tr><td><input type="checkbox"></td><td>007</td><td>Name Empresa</td><td>Passaport</td><td>8934209273</td><td>empresa@agencia.com</td><td>Agencia 32</td><td><div class="c-green">Activo</div></td><td class="flex-r gap-10"><a href="" class="ct-btn-rect ct-btn-scale-10 fle-r ai-c"><svg class="bs-icon"><use xlink:href="#i-edit"></use></svg></a><a href="" class="ct-btn-rect ct-btn-scale-10 fle-r ai-c"><svg class="bs-icon"><use xlink:href="#i-tachito"></use></svg></a></td></tr>
+                            <tr><td><input type="checkbox"></td><td>008</td><td>Name Empresa</td><td>Passaport</td><td>8934209273</td><td>empresa@agencia.com</td><td>Agencia 32</td><td><div class="c-green">Activo</div></td><td class="flex-r gap-10"><a href="" class="ct-btn-rect ct-btn-scale-10 fle-r ai-c"><svg class="bs-icon"><use xlink:href="#i-edit"></use></svg></a><a href="" class="ct-btn-rect ct-btn-scale-10 fle-r ai-c"><svg class="bs-icon"><use xlink:href="#i-tachito"></use></svg></a></td></tr>
+                            <tr><td><input type="checkbox"></td><td>009</td><td>Name Empresa</td><td>Passaport</td><td>8934209273</td><td>empresa@agencia.com</td><td>Agencia 32</td><td><div class="c-red">No Activo</div></td><td class="flex-r gap-10"><a href="" class="ct-btn-rect ct-btn-scale-10 fle-r ai-c"><svg class="bs-icon"><use xlink:href="#i-edit"></use></svg></a><a href="" class="ct-btn-rect ct-btn-scale-10 fle-r ai-c"><svg class="bs-icon"><use xlink:href="#i-tachito"></use></svg></a></td></tr>
+                            <tr><td><input type="checkbox"></td><td>010</td><td>Name Empresa</td><td>Passaport</td><td>8934209273</td><td>empresa@agencia.com</td><td>Agencia 32</td><td><div class="c-green">Activo</div></td><td class="flex-r gap-10"><a href="" class="ct-btn-rect ct-btn-scale-10 fle-r ai-c"><svg class="bs-icon"><use xlink:href="#i-edit"></use></svg></a><a href="" class="ct-btn-rect ct-btn-scale-10 fle-r ai-c"><svg class="bs-icon"><use xlink:href="#i-tachito"></use></svg></a></td></tr>
+                            <tr><td><input type="checkbox"></td><td>011</td><td>Name Empresa</td><td>Passaport</td><td>8934209273</td><td>empresa@agencia.com</td><td>Agencia 32</td><td><div class="c-green">Activo</div></td><td class="flex-r gap-10"><a href="" class="ct-btn-rect ct-btn-scale-10 fle-r ai-c"><svg class="bs-icon"><use xlink:href="#i-edit"></use></svg></a><a href="" class="ct-btn-rect ct-btn-scale-10 fle-r ai-c"><svg class="bs-icon"><use xlink:href="#i-tachito"></use></svg></a></td></tr>
+                        </table>
+                    </div>
+                </card>
+            </article>
+        </section>  
+    </main>
+
+    <!-- Footer Page -->
+    <footer>
+        <div id="footer"></div>
+    </footer>
+
+    <script src="../../Content/js/jquery.min.js"></script>
+    <script src="../../Content/js/bootstrap.bundle.min.js"></script>
+    <script src="../../Content/js/js-ct.js"></script>
+</body>
+</html>

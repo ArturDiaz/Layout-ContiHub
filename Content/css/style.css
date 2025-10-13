@@ -29,6 +29,15 @@ body{
 .c-white{color: var(--c-blanco);}
 .c-primary{color: var(--c-primary);}
 .c-blue{color: var(--c-primary-50);}
+.c-scale-10{color: var(--c-scale-10);}
+.c-scale-20{color: var(--c-scale-20);}
+.c-scale-30{color: var(--c-scale-30);}
+.c-scale-40{color: var(--c-scale-40);}
+.c-scale-50{color: var(--c-scale-50);}
+.c-scale-60{color: var(--c-scale-60);}
+.c-scale-70{color: var(--c-scale-70);}
+.c-green{color: var(--c-green); font-weight: 500;}
+.c-red{color: var(--c-red); font-weight: 500;}
 /* Font Size */
 .font-sz-10{font-size: 10px;}
 .font-sz-10-12{font-size: clamp(10px, 12px, 12px);}
@@ -264,7 +273,8 @@ select{
     justify-content: center;
 }
 .jc-r,
-.jc-r-c{
+.jc-r-c,
+.jc-r-l{
     justify-content: flex-end;
 }
 .jc-l-r{
@@ -277,7 +287,8 @@ select{
         justify-content: right;
     }
     .jc-b-l,
-    .jc-c-l{
+    .jc-c-l,
+    .jc-r-l{
         justify-content: flex-start;
     }
     .jc-b-c,
@@ -506,6 +517,12 @@ select{
     grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr) minmax(0, 1fr) minmax(0, 1fr);
 }
 
+.span-2-auto{
+    grid-column: span 2;
+    @media (min-width:1024px){
+        grid-column: span 1;
+    }
+}
 .span-2{
     grid-column: span 2;
 }
@@ -612,19 +629,22 @@ select{
 .padding-0{padding: 0px !important;}
 .padding-5{padding: 5px !important;}
 .padding-10{padding: 10px !important;}
+.padding-20{padding: 10px;}
+.padding-30{padding: 10px;}
 .padding-l-5{padding-left: 5px !important;}
 .padding-l-10{padding-left: 10px !important;}
 .padding-l-20{padding-left: 20px !important;}
 .padding-l-30{padding-left: 30px !important;}
-.padding-r-10{padding-left: 10px !important;}
-.padding-r-20{padding-left: 20px !important;}
-.padding-r-30{padding-left: 30px !important;}
-.padding-t-10{padding-left: 10px !important;}
-.padding-t-20{padding-left: 20px !important;}
-.padding-t-30{padding-left: 30px !important;}
-.padding-b-10{padding-left: 10px !important;}
-.padding-b-20{padding-left: 20px !important;}
-.padding-b-30{padding-left: 30px !important;}
+.padding-r-10{padding-right: 10px !important;}
+.padding-r-20{padding-right: 20px !important;}
+.padding-r-30{padding-right: 30px !important;}
+.padding-t-10{padding-top: 10px;}
+.padding-t-20{padding-top: 20px;}
+.padding-t-30{padding-top: 30px;}
+.padding-b-10{padding-bottom: 10px;}
+.padding-b-20{padding-bottom: 20px;}
+.padding-b-30{padding-bottom: 30px;}
+.padding-b-0{padding-bottom: 0px;}
 /**/
 
 .text-continue{
@@ -696,6 +716,7 @@ select{
     font-size: 16px;
     transition: all .3s ease;
     display: flex;
+    outline: none;
     &:hover{
         box-shadow: 2px 2px 10px var(--c-transparent);
         opacity: 0.8;
@@ -731,6 +752,7 @@ select{
     a, button{
         color: var(--c-blanco);
         background: var(--c-transparent);
+        border-radius: 10px;
         transition: all .3s ease;
         &:hover{
             background: var(--c-blanco-transparent);
@@ -745,8 +767,12 @@ select{
 }
 .ct-btn-secondary {
     background: transparent;
-    border: 1px solid var(--c-primary);
+    box-shadow: inset 0px 0 0 1px var(--c-primary);
     color: var(--c-primary);
+    &:hover{
+        box-shadow: inset 0px 0 0 1px var(--c-primary) !important;
+        filter: opacity(0.9);
+    }
 }
 .ct-btn-secondary-inverse{
     background: transparent;
@@ -843,6 +869,25 @@ select{
     }
 }
 /**/
+
+/* Tablas */
+table{
+    background: var(--c-blanco);
+    tr{
+        &:nth-child(odd){
+            background: var(--c-scale-10);
+        }
+        th{
+            background: var(--c-scale-20);
+            padding: 7px;
+            font-size: var(--font-p);
+        }
+        td{
+            padding: 7px;
+            font-size: var(--font-p);
+        }
+    }
+}
 
 /* input text */
 .content-input{
@@ -1085,7 +1130,7 @@ button[aria-expanded="false"]{
     justify-content: space-between !important;
     .icon-rotate{
         transform: rotate(90deg);
-        transition: all .3 ease;
+        transition: all .3s ease;
     }
 }
 button[aria-expanded="true"]{
@@ -1307,6 +1352,34 @@ header{
 .line-h-10{background: var(--c-scale-10);}
 .line-h-20{background: var(--c-scale-20);}
 .line-h-30{background: var(--c-scale-30);}
+
+/* clases body */
+#page-index,
+#page-home{
+    button#headingOne-1{
+        background: var(--c-blanco-transparent);
+    }
+}
+#page-tablas-comisiones{
+    #btn-table{
+        background: var(--c-blanco-transparent);
+    }
+}
+#page-seguridad-index{
+    #btn-seguridad{
+        background: var(--c-blanco-transparent);
+    }
+}
+#page-seguridad-usuarios{
+    #btn-seguridad{
+        background: var(--c-blanco-transparent);
+    }
+}
+#page-pages-agencia{
+    #btn-config{
+        background: var(--c-blanco-transparent);
+    }
+}
 /* Page Home */
 /*buscador home*/
 .badge-money{
@@ -1356,4 +1429,21 @@ header{
     .form-login{
         width: 100%;
     }
+}
+
+/* Page Comisiones */
+.accordionComisiones{
+    button{
+        border: none;
+        background: var(--c-blanco);
+        border-radius: 10px;
+        padding: 10px;
+        span{color: var(--c-scale-60);}
+    }
+    button[aria-expanded="true"]{
+        background: var(--c-scale-20) !important;
+    }
+}
+.cont-comisiones {
+    background: var(--c-blanco);
 }

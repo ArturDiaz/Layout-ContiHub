@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Continental Hub</title>
+    
+    <link href="../../Content/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../Content/css/style.css" rel="stylesheet">
+    
+</head>
+<body class="icons-svg flex-c">
+    <!-- Biblioteca Iconos -->
+    <div id="libreria-icons-svg"></div>
+    
+    <!-- Menu Left Sidebar -->
+    <div id="menuSidebarLeft" class="sidebar"></div>
+    
+    <!-- Header Page -->
+    <header>
+        <div id="headerPageTop"></div>
+    </header>
+
+    <!-- Main Page -->
+    <main>
+        <section class="content-main width-responsive flex-c gap-10">
+            <article class="main-header flex-r jc-b">
+                <nav aria-label="breadcrumb">
+                    <ol id="breadcrumbs" class="list-breadcrumb flex-r gap-5 ai-c"></ol>
+                </nav>
+                <button type="button" class="ct-btn ct-btn-white hide-desktop" data-toggle="modal" data-target="#modalSearch">
+                    <svg class="bs-icon"><use xlink:href="#i-search"></use></svg>
+                    <span class="hide-desktop">Buscar Cliente</span>   
+                </button>
+            </article>
+            <article class="flex-c gap-10">
+                <card class="flex-_c-r jc-b gap-10">
+                    <div class="item-card flex-c-r gap-10-30">
+                        <div class="flex-c">
+                            <h4><b>Datos de la Agencia</b></h4>
+                        </div>
+                    </div>
+                </card>
+                <card class="card-product-home flex-c gap-10">
+                    <div class="item-card">
+                        <div class=" flex-r gap-5 ai-c padding-b-10">
+                            <svg class="bs-icon icon-title"><use xlink:href="#i-hoteles"></use></svg>
+                            <div class="flex-c">
+                                <span>Razon Social</span>
+                                <h4>Nombre de la empresa S.A.C.</h4>
+                            </div>
+                        </div>
+                        <div class="line-h-20"></div>
+                        <div class="flex-c__grid cl-3 gap-10 w-100 padding-20">
+                            <div class="flex-c">
+                                <span>Tipo de documento</span>
+                                <h4>RUC</h4>
+                            </div>
+                            <div class="flex-c">
+                                <span>N° Documento</span>
+                                <h4>101 1000000 0000</h4>
+                            </div>
+                            <div class="flex-c">
+                                <span>Dirección Cliente</span>
+                                <h4>Jr. Lambayeque 3049 - oficina 123 - Lima - Lima - Perú</h4>
+                            </div>
+                        </div>
+                        <div class="line-h-20"></div>
+                        <div class="flex-c__grid cl-3 gap-10 w-100 padding-20 padding-b-0">
+                            <div class="flex-c">
+                                <span>Teléfono Cliente</span>
+                                <h4>+51 561 2345</h4>
+                            </div>
+                            <div class="flex-c">
+                                <span>Email</span>
+                                <h4>empresa@agencia.com</h4>
+                            </div>
+                            <div class="flex-c">
+                                <span>Estado</span>
+                                <h4>Activo</h4>
+                            </div>
+                        </div>
+                    </div>
+                </card>
+            </article>
+        </section>  
+    </main>
+
+    <!-- Footer Page -->
+    <footer>
+        <div id="footer"></div>
+    </footer>
+
+    <script src="../../Content/js/jquery.min.js"></script>
+    <script src="../../Content/js/bootstrap.bundle.min.js"></script>
+    <script src="../../Content/js/js-ct.js"></script>
+</body>
+</html>

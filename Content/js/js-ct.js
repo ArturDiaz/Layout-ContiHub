@@ -49,7 +49,7 @@ $(document).ready(function(){
             pageName = folderName + '-' + pageName;
         }
     }
-    $('body').addClass("page-" + pageName.toLowerCase());
+    $('body').attr("id", "page-" + pageName.toLowerCase());
 
     /* Generar breadcrumbs dinámicamente */
     generateBreadcrumbs();
@@ -132,9 +132,10 @@ function fixImagePaths() {
         $('img').each(function() {
             const currentSrc = $(this).attr('src');
             
-            if (currentSrc && (currentSrc.includes('../../Content/img/') || currentSrc.includes('../Content/img/') || currentSrc.includes('Content/img/'))) {
-                const fileName = currentSrc.split('/').pop();
-                const newSrc = imgPath + fileName;
+            if (currentSrc && (currentSrc.includes('Content/img/'))) {
+                // Extrae la parte después de "Content/img/"
+                const relativePath = currentSrc.split('Content/img/')[1];
+                const newSrc = imgPath + relativePath;
                 $(this).attr('src', newSrc);
             }
         });
@@ -142,14 +143,15 @@ function fixImagePaths() {
         $('source').each(function() {
             const currentSrcset = $(this).attr('srcset');
             
-            if (currentSrcset && (currentSrcset.includes('../../Content/img/') || currentSrcset.includes('../Content/img/') || currentSrcset.includes('Content/img/'))) {
-                const fileName = currentSrcset.split('/').pop();
-                const newSrcset = imgPath + fileName;
+            if (currentSrcset && (currentSrcset.includes('Content/img/'))) {
+                const relativePath = currentSrcset.split('Content/img/')[1];
+                const newSrcset = imgPath + relativePath;
                 $(this).attr('srcset', newSrcset);
             }
         });
     }, 50);
 }
+
 
 function setupHomeLinks() {
     const homePath = getHomePath();
@@ -167,6 +169,7 @@ function setupHomeLinks() {
 
 function setupDynamicLinks() {
     const basePath = getBasePath();
+    const homePath = getHomePath();
     
     $('.dynamic-link').each(function() {
         const originalHref = $(this).attr('href');
@@ -176,17 +179,22 @@ function setupDynamicLinks() {
             return;
         }
         
+        // Si es index.html o "/", va al home (raíz del proyecto)
         if (originalHref === 'index.html' || originalHref === '/') {
-            newHref = getHomePath();
+            newHref = homePath;
         } 
+        // Si es cualquier otra página .html
         else if (originalHref.endsWith('.html')) {
             if (originalHref.includes('/')) {
+                // Si ya tiene una ruta como "Reservas/index.html"
                 newHref = `${basePath}Views/${originalHref}`;
             } else {
+                // Si es solo un archivo como "Tablas.html" (pero NO index.html)
                 newHref = `${basePath}Views/Pages/${originalHref}`;
             }
         }
         
+        // Actualizar el href
         $(this).attr('href', newHref);
     });
 }
@@ -221,7 +229,7 @@ function generateBreadcrumbs() {
     // Agregar el enlace de inicio
     const homeLink = $('<a>').attr('href', homePath).addClass("flex-r ai-c").html(`
         <svg class="bs-icon"><use xlink:href="#i-home"></use></svg>
-        <span>Inicio</span>
+        
     `);
     breadcrumbContainer.append($('<li>').append(homeLink));
     
